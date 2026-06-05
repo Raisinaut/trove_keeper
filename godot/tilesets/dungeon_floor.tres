@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://c2pfap4oxu8ji"]
+[gd_resource type="TileSet" format=3 uid="uid://c2pfap4oxu8ji"]
 
 [ext_resource type="Texture2D" uid="uid://dhtrh7wti47xr" path="res://assets/free-top-down-roguelike-game-kit-pixel-art-craftpix-net-436971/2 Dungeon Tileset/1 Tiles/Tileset.png" id="1_a40jh"]
 

@@ -1,9 +1,9 @@
+@tool
 class_name TrapButton
 extends SelectionButton
 
 @export var data : TrapData = null : set = set_data
 
-@onready var icon = %TrapIcon
 @onready var cost_label = %CostLabel
 
 var affordable : bool = false : set = set_affordable
@@ -14,7 +14,7 @@ func _ready() -> void:
 	GameManager.currency_modified.connect(_on_game_manager_currency_modified)
 
 func match_data(d = data) -> void:
-	icon.texture = data.icon
+	icon_texture = data.icon
 	cost_label.text = str(data.base_cost)
 	update_affordable()
 

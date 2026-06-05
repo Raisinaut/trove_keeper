@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://b13vwyaewc6tm"]
+[gd_scene format=4 uid="uid://b13vwyaewc6tm"]
 
 [ext_resource type="PackedScene" uid="uid://yjjkhh7sb3m" path="res://general/debug/debug_menu.tscn" id="1_6gk0q"]
 [ext_resource type="PackedScene" uid="uid://b7gh3a6eb03y0" path="res://ui/resource_display/resource_display.tscn" id="1_a47p7"]
@@ -118,16 +118,16 @@ _data = {
 }
 point_count = 6
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" unique_id=105446958]
 y_sort_enabled = true
 script = ExtResource("1_xaem1")
 
-[node name="OnscreenControls" parent="." instance=ExtResource("8_qxrr7")]
+[node name="OnscreenControls" parent="." unique_id=1973901409 instance=ExtResource("8_qxrr7")]
 test_joystick = false
 
-[node name="ResourceDisplay" parent="." instance=ExtResource("1_a47p7")]
+[node name="ResourceDisplay" parent="." unique_id=1841894369 instance=ExtResource("1_a47p7")]
 
-[node name="Label" type="Label" parent="ResourceDisplay"]
+[node name="Label" type="Label" parent="ResourceDisplay" unique_id=1943525738]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -140,11 +140,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_wn8u6")
 
-[node name="WarningOverlay" type="CanvasLayer" parent="."]
+[node name="WarningOverlay" type="CanvasLayer" parent="." unique_id=2013068998]
 script = ExtResource("5_sqy2y")
 warning_curve = SubResource("Curve_sqy2y")
 
-[node name="ColorVignette" type="ColorRect" parent="WarningOverlay"]
+[node name="ColorVignette" type="ColorRect" parent="WarningOverlay" unique_id=2113354368]
 visible = false
 material = SubResource("ShaderMaterial_sqy2y")
 anchors_preset = 15
@@ -153,62 +153,62 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TrapSelection" parent="." node_paths=PackedStringArray("map") instance=ExtResource("2_f3iph")]
+[node name="TrapSelection" parent="." unique_id=61564745 node_paths=PackedStringArray("map") instance=ExtResource("2_f3iph")]
 map = NodePath("../Map")
 
-[node name="DebugMenu" parent="." instance=ExtResource("1_6gk0q")]
+[node name="DebugMenu" parent="." unique_id=796913190 instance=ExtResource("1_6gk0q")]
 
-[node name="Map" type="Node2D" parent="."]
+[node name="Map" type="Node2D" parent="." unique_id=532161133]
 y_sort_enabled = true
 script = ExtResource("2_vrunm")
 
-[node name="Ground" type="TileMapLayer" parent="Map" node_paths=PackedStringArray("enemy_path")]
+[node name="Ground" type="TileMapLayer" parent="Map" unique_id=1280075335 node_paths=PackedStringArray("enemy_path")]
 z_index = -10
 tile_map_data = PackedByteArray("AAARAAgAAAACAAIAAAARAAUAAAADAAIABAAQAAgAAAAPAAIAAAAQAAUAAAACAAMAAQAOAAgAAAACAAIAAAANAAgAAAACAAQAAAANAAYAAAACAAMAAAANAAUAAAACAAQAAAANAAQAAAACAAQAAAAMAAgAAAARAAcAAgAMAAYAAAARAAcAAgAMAAUAAAARAAgAAAAMAAQAAAACAAIAAAALAAgAAAAEAAIAAQALAAQAAAADAAMAAgAKAAgAAAADAAIABAAKAAQAAAARAAYAAQAJAAgAAAADAAMAAgAJAAQAAAAEAAIAAQAIAAgAAAACAAIAAAAIAAQAAAARAAcAAAAHAAgAAAADAAQAAAAHAAQAAAADAAIABAAGAAgAAAAEAAQAAAAGAAQAAAARAAcAAgAGAAMAAAACAAIAAAAGAAIAAAACAAIAAAAFAAgAAAACAAMAAAAFAAQAAAADAAQAAAAFAAMAAAAEAAMAAgAFAAIAAAARAAcAAgAEAAQAAAADAAIAAAAEAAMAAAADAAQAAQAEAAIAAAADAAIAAAADAAQAAAACAAMAAAADAAMAAAADAAMAAgAOAAMAAAAEAAMAAAANAAMAAAACAAIAAAAMAAMAAAADAAMAAAAHAAMAAAAEAAQAAQALAAMAAAARAAcAAAAKAAMAAAACAAIAAAAJAAMAAAACAAIAAAAIAAMAAAAEAAQAAAACAAQAAAACAAIAAAACAAIAAAADAAIAAAACAAMAAAACAAIAAAADAAIAAAACAAIAAAARAAkAAAACAAMAAQAQAAkAAAAPAAIAAAAOAAkAAAARAAkAAQANAAkAAAACAAMAAAAMAAkAAAAEAAIAAQALAAkAAAACAAIAAAAKAAkAAAACAAIAAAAJAAkAAAADAAQAAAAIAAkAAAACAAIAAAAHAAkAAAAEAAMAAAAGAAkAAAARAAcAAgAFAAkAAAAQAAkAAAAOAAIAAAAEAAMAAAANAAIAAAAEAAMAAAAMAAIAAAADAAQAAAALAAIAAAADAAQAAAAKAAIAAAAEAAIAAQAJAAIAAAAEAAQAAAAIAAIAAAADAAQAAQAHAAIAAAARAAgAAAAGAAEAAAACAAMAAQAGAAAAAAAEAAMAAgAGAP//AAAEAAMAAAAGAP7/AAADAAMAAgAGAP3/AAADAAQAAAAFAAEAAAACAAIAAAAFAAAAAAAEAAIAAAAFAP//AAACAAIAAAAFAP7/AAACAAIAAAAFAP3/AAADAAIAAAAEAAEAAAARAAgAAAAEAAAAAAACAAIAAAAEAP//AAARAAcAAgAEAP7/AAARAAgAAQAEAP3/AAACAAIAAAADAAEAAAAEAAMAAAADAAAAAAARAAcAAgADAP//AAACAAIAAAADAP7/AAACAAIAAAADAP3/AAACAAMAAAACAAEAAAAQAAkAAAACAAAAAAACAAIAAAACAP//AAACAAIAAAACAP7/AAACAAMAAQACAP3/AAACAAMAAAAOAP7/AAAQAAkAAAAOAP3/AAAEAAQAAAANAP7/AAADAAQAAQANAP3/AAACAAIAAAAMAP7/AAADAAQAAQAMAP3/AAACAAIAAAALAP7/AAADAAIAAAALAP3/AAAEAAMAAAAKAP7/AAAEAAQAAQAKAP3/AAACAAIAAAAJAP7/AAADAAIAAAAJAP3/AAADAAQAAAAIAP7/AAARAAYAAQAIAP3/AAADAAIAAAAHAP7/AAAEAAQAAAAHAP3/AAADAAMAAAARAP7/AAARAAgAAQARAP3/AAAEAAMAAAAQAP7/AAACAAMAAQAQAP3/AAAEAAIAAQAPAP7/AAACAAIAAAAPAP3/AAARAAcAAAARAPz/AAAEAAIAAAAQAPz/AAACAAIAAAAPAPz/AAACAAIAAAAOAPz/AAACAAIAAAANAPz/AAADAAIAAAAMAPz/AAAQAAkAAAALAPz/AAACAAIAAAAKAPz/AAARAAkAAQAJAPz/AAACAAIAAAAIAPz/AAACAAIAAAAHAPz/AAADAAMAAAAGAPz/AAACAAMAAAAFAPz/AAAEAAIAAQAEAPz/AAAEAAMAAAADAPz/AAADAAMAAgACAPz/AAAEAAIAAAARAAoAAAACAAIAAAAQAAoAAAARAAkAAQAPAAoAAAARAAcAAgAOAAoAAAARAAcAAgANAAoAAAACAAIAAAAMAAoAAAAEAAMAAAALAAoAAAADAAQAAAAKAAoAAAACAAIAAAAJAAoAAAADAAMAAgAIAAoAAAACAAIAAAAHAAoAAAACAAIAAAAGAAoAAAARAAkAAAAFAAoAAAAEAAQAAAAMAAcAAAARAAYAAQANAAcAAAACAAIAAAAQAAcAAAAPAAIAAAARAAcAAAARAAgAAAARAAYAAAARAAcAAAAQAAYAAAAQAAEAAAAPAAYAAAAQAAIAAAAPAAUAAAARAAYAAQAOAAUAAAARAAkAAAAOAAQAAAAQAAkAAAAOAAYAAAADAAQAAAAOAAcAAAACAAIAAAAPAAcAAAAPAAIAAAAPAAgAAAAPAAIAAAAPAAkAAAAPAAIAAAA=")
 tile_set = ExtResource("11_517cg")
 script = ExtResource("12_07ypr")
 enemy_path = NodePath("../../Entities/EnemyPath")
 
-[node name="HighlightBox" type="AnimatedSprite2D" parent="Map/Ground"]
+[node name="HighlightBox" type="AnimatedSprite2D" parent="Map/Ground" unique_id=1070694821]
 sprite_frames = SubResource("SpriteFrames_vehgu")
 autoplay = "default"
 
-[node name="Traps" type="TileMapLayer" parent="Map"]
+[node name="Traps" type="TileMapLayer" parent="Map" unique_id=1304959457]
 y_sort_enabled = true
 tile_set = SubResource("TileSet_vehgu")
 script = ExtResource("15_6n8p7")
 
-[node name="TrapsHover" type="TileMapLayer" parent="Map"]
+[node name="TrapsHover" type="TileMapLayer" parent="Map" unique_id=248904982]
 y_sort_enabled = true
 tile_set = SubResource("TileSet_vehgu")
 
-[node name="Walls" type="TileMapLayer" parent="Map"]
+[node name="Walls" type="TileMapLayer" parent="Map" unique_id=924729680]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAHAAUAAAABAAcAAAAGAAUAAAACAAEAAAAFAAUAAAADAAkAAAAEAAUAAAAEAAUAAAADAAUAAAAEAAEAAAACAAUAAAAEAAUAAAABAAUAAAABAAUAAAAPAAQAAAABAAUAAAAPAAMAAAABAAIAAAASAAQAAAAFAAEAAAARAAQAAAADAAEAAAAQAAQAAAADAAEAAAALAAUAAAAFAAEAAAAKAAUAAAACAAEAAAAJAAUAAAADAAUAAAAIAAUAAAAEAAEAAAALAAYAAAAFAAIAAAAEAAcAAAABAAEAAAAEAAkAAAABAAQAAAAEAAgAAAAFAAQAAAABAAIAAAAFAAIAAAABAAMAAAAFAAQAAAABAAQAAAABAAIAAAASAAUAAAAFAAQAAAASAAYAAAABAAIAAAASAAcAAAAFAAMAAAASAAgAAAAFAAQAAAASAAkAAAAFAAMAAAAFAAcAAAACAAUAAAAGAAcAAAADAAUAAAAHAAcAAAAEAAEAAAAIAAcAAAAEAAEAAAAJAAcAAAACAAkAAAAKAAcAAAAEAAEAAAALAAcAAAAFAAUAAAAEAAoAAAABAAIAAAASAAoAAAABAAMAAAABAAEAAAABAAIAAAABAAAAAAAFAAIAAAABAP//AAAFAAMAAAABAP7/AAABAAIAAAABAP3/AAABAAMAAAABAPz/AAAFAAMAAAABAPv/AAABAAEAAAAPAAIAAAABAAIAAAAPAAEAAAAFAAEAAAAOAAEAAAACAAkAAAANAAEAAAADAAUAAAAMAAEAAAACAAUAAAALAAEAAAADAAUAAAAKAAEAAAAEAAUAAAAJAAEAAAAEAAUAAAAIAAEAAAAEAAUAAAAHAAEAAAABAAUAAAAHAAAAAAAFAAIAAAAHAP//AAABAAEAAAASAP//AAAFAAUAAAARAP//AAACAAkAAAAQAP//AAADAAUAAAAPAP//AAACAAUAAAAOAP//AAADAAEAAAANAP//AAAEAAUAAAAMAP//AAAEAAUAAAALAP//AAADAAUAAAAKAP//AAACAAEAAAAJAP//AAACAAUAAAAIAP//AAADAAUAAAASAPv/AAAFAAEAAAARAPv/AAACAAEAAAAQAPv/AAAEAAUAAAAPAPv/AAADAAUAAAAOAPv/AAACAAkAAAANAPv/AAACAAEAAAAMAPv/AAACAAEAAAALAPv/AAADAAEAAAAKAPv/AAAEAAEAAAAJAPv/AAACAAUAAAAIAPv/AAADAAUAAAAHAPv/AAAEAAEAAAAGAPv/AAADAAEAAAAFAPv/AAAEAAEAAAAEAPv/AAAEAAEAAAADAPv/AAAEAAUAAAACAPv/AAAEAAUAAAASAP7/AAAFAAMAAAASAP3/AAAFAAQAAAASAPz/AAABAAQAAAAEAAsAAAABAAUAAAAFAAsAAAAEAAEAAAAGAAsAAAACAAkAAAAHAAsAAAACAAkAAAALAAsAAAADAAUAAAAMAAsAAAADAAEAAAANAAsAAAAEAAUAAAAOAAsAAAAEAAEAAAAPAAsAAAADAAUAAAAQAAsAAAADAAUAAAARAAsAAAAEAAEAAAASAAsAAAAFAAUAAAAIAAsAAAAEAAEAAAAJAAsAAAAEAAUAAAAKAAsAAAACAAUAAAA=")
 tile_set = ExtResource("14_517cg")
 
-[node name="Entities" type="Node2D" parent="."]
+[node name="Entities" type="Node2D" parent="." unique_id=831645605]
 y_sort_enabled = true
 script = ExtResource("10_200ie")
 
-[node name="Player" parent="Entities" instance=ExtResource("2_0wynk")]
+[node name="Player" parent="Entities" unique_id=409643016 instance=ExtResource("2_0wynk")]
 position = Vector2(219, -32)
 
-[node name="EnemyPath" type="Path2D" parent="Entities"]
+[node name="EnemyPath" type="Path2D" parent="Entities" unique_id=1909676264]
 y_sort_enabled = true
 curve = SubResource("Curve2D_x46hq")
 script = ExtResource("4_ohqux")
 enemy_scene = ExtResource("5_ohqux")
 spawn_interval = 2.0
 
-[node name="MinionDoor2" parent="Entities" instance=ExtResource("6_a47p7")]
+[node name="MinionDoor2" parent="Entities" unique_id=273912129 instance=ExtResource("6_a47p7")]
 position = Vector2(184, 32)
 
-[node name="MinionDoor" parent="Entities" instance=ExtResource("6_a47p7")]
+[node name="MinionDoor" parent="Entities" unique_id=2002299446 instance=ExtResource("6_a47p7")]
 position = Vector2(56, -64)
 
-[node name="CoinPile" parent="Entities" instance=ExtResource("21_07ypr")]
+[node name="CoinPile" parent="Entities" unique_id=1848501774 instance=ExtResource("21_07ypr")]
 position = Vector2(269, -40)
 
-[node name="ShakyCam" parent="." node_paths=PackedStringArray("target") instance=ExtResource("10_vehgu")]
+[node name="ShakyCam" parent="." unique_id=1729231318 node_paths=PackedStringArray("target") instance=ExtResource("10_vehgu")]
 target = NodePath("../Entities/Player")

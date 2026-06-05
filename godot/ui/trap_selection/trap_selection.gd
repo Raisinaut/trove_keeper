@@ -2,7 +2,8 @@ extends CanvasLayer
 
 @onready var button_container = %ButtonContainer
 @onready var selection_indicator = $SelectionIndicator
-@onready var erase_button = %EraseButton
+@onready var remove_button: SelectionButton = %RemoveButton
+@onready var upgrade_button: SelectionButton = %UpgradeButton
 
 @export var button_scene : PackedScene
 @export var map : InteractableMap
@@ -12,7 +13,8 @@ func _ready() -> void:
 	selection_indicator.hide()
 	for d in TrapManager.all_data:
 		add_button(d)
-	connect_button_signals(erase_button)
+	connect_button_signals(remove_button)
+	connect_button_signals(upgrade_button)
 
 func add_button(data : TrapData):
 	var inst : TrapButton = button_scene.instantiate()
@@ -27,17 +29,38 @@ func connect_button_signals(btn) -> void:
 	btn.focus_changed.connect(_on_button_focus_changed.bind(btn))
 
 
+# MAP MANAGEMENT ---------------------------------------------------------------
+func place_trap_on_map(data : TrapData) -> void:
+	map.selected_scene = TrapManager.find_data_idx(data)
+	if map.can_place():
+		map.place_trap(data.base_cost)
+
+func remove_highlighted_trap_from_map() -> void:
+	if map.can_remove():
+		var ps : PackedScene = map.get_highlighted_scene_as_packed()
+		var data : TrapData = TrapManager.get_trap_data_for_scene(ps)
+		var refund_value = data.base_cost
+		map.remove_trap(refund_value)
+		
+func attempt_to_upgrade_highlighted_trap_on_map() -> void:
+	var s = map.get_highlighted_scene()
+	if not s:
+		return
+	var upgrade_property : String = "special_2"
+	var current_tier = TrapManager.get_trap_tier(s, upgrade_property)
+	TrapManager.set_trap_tier(s, upgrade_property, current_tier + 1)
+	print("Upgraded " + s.name + "'s " + upgrade_property)
+
+
 # SIGNALS ----------------------------------------------------------------------
 func _on_button_selected(btn) -> void:
-	if btn is TrapButton:
-		map.selected_scene = TrapManager.find_data_idx(btn.data)
-		if map.can_place():
-			map.place_trap(btn.data.base_cost)
-	else:
-		if map.can_remove():
-			var scene = map.get_highlighted_scene()
-			var data : TrapData = TrapManager.get_trap_data_for_scene(scene)
-			map.remove_trap(data.base_cost)
+	match(btn.function):
+		SelectionButton.FUNCTIONS.PLACE:
+			place_trap_on_map(btn.data)
+		SelectionButton.FUNCTIONS.REMOVE:
+			remove_highlighted_trap_from_map()
+		SelectionButton.FUNCTIONS.UPGRADE:
+			attempt_to_upgrade_highlighted_trap_on_map()
 
 func _on_button_focus_changed(is_focused : bool, btn : SelectionButton) -> void:
 	map.selected_scene = -1
@@ -50,7 +73,7 @@ func _on_button_focus_changed(is_focused : bool, btn : SelectionButton) -> void:
 				map.mode = map.MODES.PLACE
 				if not btn.disabled:
 					map.selected_scene = TrapManager.find_data_idx(btn.data)
-			SelectionButton.FUNCTIONS.ERASE:
+			SelectionButton.FUNCTIONS.REMOVE:
 				map.mode = map.MODES.REMOVE
 	else:
 		selection_indicator.hide()

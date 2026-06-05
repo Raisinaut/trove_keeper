@@ -16,7 +16,7 @@ func _ready() -> void:
 func find_data_idx(data : TrapData) -> int:
 	return all_data.find(data)
 
-func get_trap_data_for_scene(trap_scene) -> TrapData:
+func get_trap_data_for_scene(trap_scene : PackedScene) -> TrapData:
 	var data = null
 	for d : TrapData in all_data:
 		if d.scene == trap_scene:
@@ -27,6 +27,7 @@ func get_trap_data_for_scene(trap_scene) -> TrapData:
 func get_data_for_instance(inst : BaseTrap) -> TrapData:
 	var scene = load(inst.scene_file_path)
 	return get_trap_data_for_scene(scene)
+
 
 # GENERAL ----------------------------------------------------------------------
 func populate_data_list(data_list : Array):
@@ -59,33 +60,37 @@ func populate_data_list(data_list : Array):
 func reset_tiers(trap : BaseTrap) -> void:
 	var data = get_data_for_instance(trap)
 	for p in data.upgradeable_properties:
-		set_tier_idx(trap, p, 0)
+		set_trap_tier(trap, p, 0)
 
-func set_tier_idx(trap : BaseTrap, property : String, tier_idx : int) -> void:
+func set_trap_tier(trap : BaseTrap, property : String, tier : int) -> void:
 	var data = get_data_for_instance(trap)
-	var tiers = get_tiers(data.get_type_string(), data.display_name, property)
-	if tiers:
+	var all_tiers = get_tiers(data.get_type_as_string(), data.display_name, property)
+	if all_tiers:
 		var full_property_name = data.get(property)
-		var max_tier = tiers.size() - 1
-		var value = tiers[min(tier_idx, max_tier)]
+		var max_tier = all_tiers.size() - 1
+		var value = all_tiers[min(tier, max_tier)]
 		trap.set(full_property_name, value)
 	else:
-		#push_warning("Property \"" + property_name + "\" \
-		#does not exist in " + str(trap))
+		push_warning("Property \"" + property + "\" \
+		does not exist in " + str(trap))
 		pass
 
-## Returns an array of tier values for the given property.
+## Returns an array of tier values for the given property.[br]
+##  [code]type[/code] can be tower or consumable [br]
+##  [code]trap_name[/code] should match the trap's display name, case does not matter. [br]
+##  [code]property[/code] must be an upgradable property: interval_1, special_2, etc.
 func get_tiers(type : String, trap_name : String, property : String) -> Array:
 	return weapon_tiers[type][trap_name][property]
 
-## Returns the given property's tier index.
-func get_tier_index(trap : BaseTrap, property : String) -> int:
+## Returns the given property's tier [br]
+## Tiers use zero-based indices
+func get_trap_tier(trap : BaseTrap, property : String) -> int:
 	# get current property value
 	var data = get_data_for_instance(trap)
-	var full_property_name = data.get(property)
-	var property_value = trap.get(full_property_name)
-	# get that value's tier index
-	var tiers = get_tiers(data.get_type_string(), data.display_name, property)
+	var actual_property_name = data.get(property) # find linked property
+	var property_value : float = trap.get(actual_property_name) # cast value to float to work with json
+	# find and return that value's tier index
+	var tiers = get_tiers(data.get_type_as_string(), data.display_name, property)
 	return tiers.find(property_value)
 
 

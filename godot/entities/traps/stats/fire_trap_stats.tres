@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="FireTrapStats" load_steps=2 format=3 uid="uid://wse8s6isx4im"]
+[gd_resource type="Resource" script_class="FireTrapStats" format=3 uid="uid://wse8s6isx4im"]
 
 [ext_resource type="Script" uid="uid://ckdmxjo000rpj" path="res://entities/traps/stats/fire_trap_stats.gd" id="1_enfk4"]
 
@@ -6,6 +6,4 @@
 script = ExtResource("1_enfk4")
 rotations_per_second_tiers = Array[float]([0.5])
 fireball_count_tiers = Array[int]([2])
-active_interval_tiers = [2.0]
-active_duration_tiers = Array[float]([1.0])
 metadata/_custom_type_script = "uid://ckdmxjo000rpj"

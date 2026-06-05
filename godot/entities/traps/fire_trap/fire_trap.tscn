@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://lmebpt6opvja"]
+[gd_scene format=3 uid="uid://lmebpt6opvja"]
 
 [ext_resource type="Script" uid="uid://bhmugkt112es3" path="res://entities/traps/fire_trap/fire_trap.gd" id="1_4vp1b"]
 [ext_resource type="Texture2D" uid="uid://cw6cmeriakret" path="res://assets/objects/traps/fire_trap/fire_trap.png" id="1_uigei"]
@@ -154,36 +154,36 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_x8jmv"]
 radius = 1.0
 
-[node name="FireTrap" type="Node2D"]
+[node name="FireTrap" type="Node2D" unique_id=1519019872]
 script = ExtResource("1_4vp1b")
 interaction_states = [true, false]
 
-[node name="Base" type="AnimatedSprite2D" parent="."]
+[node name="Base" type="AnimatedSprite2D" parent="." unique_id=1856943042]
 z_index = -1
 sprite_frames = SubResource("SpriteFrames_wxbwv")
 autoplay = "default"
 
-[node name="Fireballs" type="Node2D" parent="."]
+[node name="Fireballs" type="Node2D" parent="." unique_id=1485425156]
 script = ExtResource("3_qmrr5")
 entity_count = 3
 entity_scene = ExtResource("4_dda22")
 
-[node name="Generation" type="AnimatedSprite2D" parent="."]
+[node name="Generation" type="AnimatedSprite2D" parent="." unique_id=2012078200]
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_5bmfi")
 autoplay = "default"
 offset = Vector2(0, -1)
 
-[node name="InteractionArea" type="Area2D" parent="."]
+[node name="InteractionArea" type="Area2D" parent="." unique_id=406627971]
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("6_suj3x")
 metadata/_custom_type_script = "uid://b545io1mgm2pc"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=912602677]
 shape = SubResource("CircleShape2D_x8jmv")
 
-[node name="InteractCost" parent="." node_paths=PackedStringArray("linked_area") instance=ExtResource("7_x8jmv")]
+[node name="InteractCost" parent="." unique_id=608762362 node_paths=PackedStringArray("linked_area") instance=ExtResource("7_x8jmv")]
 offset_left = -21.5
 offset_top = -33.0
 offset_right = 21.5
@@ -193,7 +193,7 @@ action_icons = Array[Texture]([ExtResource("8_i7lgh"), ExtResource("9_mdnyf")])
 action = "FLIP"
 linked_area = NodePath("../InteractionArea")
 
-[node name="MeterIndicator" parent="." node_paths=PackedStringArray("signal_node") instance=ExtResource("10_mdnyf")]
+[node name="MeterIndicator" parent="." unique_id=1237080043 node_paths=PackedStringArray("signal_node") instance=ExtResource("10_mdnyf")]
 offset_left = -5.0
 offset_top = 5.0
 offset_right = 5.0

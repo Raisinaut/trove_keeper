@@ -15,7 +15,7 @@ enum TYPES  {
 ## How much it costs to place the trap
 @export var base_cost : int
 
-@export_category("UPGRADE PROPERTIES")
+@export_category("UPGRADEABLE PROPERTIES")
 @export var interval : String = "active_interval"
 @export var duration : String = "active_duration"
 @export var special_1 : String = ""
@@ -28,7 +28,7 @@ var upgradeable_properties = [
 	"special_2"
 ]
 
-func get_type_string(lowercase := true) -> String:
+func get_type_as_string(lowercase := true) -> String:
 	var string : String = TYPES.keys()[type]
 	if lowercase:
 		string = string.to_lower()

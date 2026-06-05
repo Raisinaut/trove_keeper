@@ -6,7 +6,7 @@ extends Node2D
 @onready var traps_hover = $TrapsHover
 @onready var highlight_box = $Ground/HighlightBox
 
-var highlight_idx = Vector2i.ZERO
+var highlight_coords = Vector2i.ZERO
 var hover_opacity = 0.6 # visibility percent
 var selected_scene = -1 # -1 is null
 var refund_percent = 0.5
@@ -33,12 +33,12 @@ func _process(delta: float) -> void:
 func update_hover():
 	traps_hover.clear()
 	var player_position = GameManager.player.global_position
-	highlight_idx = traps_hover.local_to_map(player_position)
+	highlight_coords = traps_hover.local_to_map(player_position)
 	var tile_idx = selected_scene + 1 #always add one when accessing tiles
 	if is_idx_valid(tile_idx):
-		var no_trap_present = is_cell_unused_by_layer(highlight_idx, traps)
+		var no_trap_present = is_cell_unused_by_layer(highlight_coords, traps)
 		traps_hover.visible = no_trap_present
-		traps_hover.set_cell(highlight_idx, 0, Vector2i(0, 0), tile_idx)
+		traps_hover.set_cell(highlight_coords, 0, Vector2i(0, 0), tile_idx)
 		if can_place():
 			traps_hover.modulate = Color("ffffff") * hover_opacity
 		else:
@@ -68,26 +68,29 @@ func update_highlight():
 			if not can_remove():
 				highlight_box.modulate = Color("f5767a")
 	if highlight_box.visible:
-		var highlight_pos = traps.map_to_local(highlight_idx)
+		var highlight_pos = traps.map_to_local(highlight_coords)
 		highlight_box.global_position = highlight_pos
 
 func place_trap(cost : int) -> void:
 	var tile_idx = selected_scene + 1
 	if is_idx_valid(tile_idx):
 		GameManager.spend_currency(cost)
-		traps.set_cell(highlight_idx, 0, Vector2i(0, 0), tile_idx)
+		traps.set_cell(highlight_coords, 0, Vector2i(0, 0), tile_idx)
 
 func remove_trap(cost : int) -> void:
-	traps.erase_cell(highlight_idx)
+	traps.erase_cell(highlight_coords)
 	var refund_amount = int(cost * refund_percent)
 	GameManager.gain_currency(refund_amount)
 
-func get_highlighted_scene() -> PackedScene:
-	var tile_idx = traps.get_cell_alternative_tile(highlight_idx)
+func get_highlighted_scene_as_packed() -> PackedScene:
+	var tile_idx = traps.get_cell_alternative_tile(highlight_coords)
 	var trap_tiles : TileSet = traps.tile_set
 	var scene_collection : TileSetScenesCollectionSource = trap_tiles.get_source(0)
 	var trap = scene_collection.get_scene_tile_scene(tile_idx)
 	return trap
+
+func get_highlighted_scene() -> Node2D:
+	return traps.get_cell_scene(highlight_coords)
 
 
 # SIGNALS ----------------------------------------------------------------------
@@ -133,7 +136,7 @@ func is_highlighting() -> bool:
 	return traps_hover.get_used_cells().size() > 0
 
 func can_place() -> bool:
-	return is_cell_valid(highlight_idx)
+	return is_cell_valid(highlight_coords)
 
 func can_remove() -> bool:
-	return traps.get_used_cells().has(highlight_idx)
+	return traps.get_used_cells().has(highlight_coords)

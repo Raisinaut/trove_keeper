@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="TrapData" load_steps=4 format=3 uid="uid://bqdmea5qxlplc"]
+[gd_resource type="Resource" script_class="TrapData" format=3 uid="uid://bqdmea5qxlplc"]
 
 [ext_resource type="Texture2D" uid="uid://dym1i6kdlj4iw" path="res://assets/objects/traps/fire_trap/fire_trap_icon.png" id="1_vtowl"]
 [ext_resource type="PackedScene" uid="uid://lmebpt6opvja" path="res://entities/traps/fire_trap/fire_trap.tscn" id="2_3a5r6"]

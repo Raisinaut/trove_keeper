@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://crcqttd4o7u7c"]
+[gd_scene format=3 uid="uid://crcqttd4o7u7c"]
 
 [ext_resource type="Script" uid="uid://6m4t4obdjgti" path="res://managers/trap_manager.gd" id="1_y4tb8"]
 
-[node name="TrapManager" type="Node"]
+[node name="TrapManager" type="Node" unique_id=961174595]
 script = ExtResource("1_y4tb8")
