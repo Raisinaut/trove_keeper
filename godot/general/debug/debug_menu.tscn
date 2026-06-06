@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://yjjkhh7sb3m"]
+[gd_scene format=3 uid="uid://yjjkhh7sb3m"]
 
 [ext_resource type="Script" uid="uid://k223i0h5n0ba" path="res://general/debug/debug_menu.gd" id="1_do8ac"]
-[ext_resource type="LabelSettings" uid="uid://brbf5lml7xnsv" path="res://ui/pixel_label_settings.tres" id="2_eo4ue"]
+[ext_resource type="LabelSettings" uid="uid://brbf5lml7xnsv" path="res://ui/label_settings/pixel_label_settings.tres" id="2_eo4ue"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eo4ue"]
 bg_color = Color(1, 1, 1, 0.14500001)

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cjv3bvptdpiap"]
 
-[ext_resource type="Script" uid="uid://bu80h2b1remc3" path="res://ui/trap_selection/buttons/selection_button.gd" id="1_dr63b"]
-[ext_resource type="Texture2D" uid="uid://dqm6r0kraajyj" path="res://assets/free-top-down-roguelike-game-kit-pixel-art-craftpix-net-436971/4 GUI/1 Interface/TileMap8.png" id="2_xf62c"]
-[ext_resource type="LabelSettings" uid="uid://brbf5lml7xnsv" path="res://ui/pixel_label_settings.tres" id="4_pjbjf"]
+[ext_resource type="Script" uid="uid://bu80h2b1remc3" path="res://ui/trap_selection/buttons/selection_button/selection_button.gd" id="1_or2aw"]
+[ext_resource type="Texture2D" uid="uid://dqm6r0kraajyj" path="res://assets/free-top-down-roguelike-game-kit-pixel-art-craftpix-net-436971/4 GUI/1 Interface/TileMap8.png" id="2_8ffn0"]
+[ext_resource type="LabelSettings" uid="uid://brbf5lml7xnsv" path="res://ui/label_settings/pixel_label_settings.tres" id="3_w7020"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0a22n"]
 
@@ -11,12 +11,11 @@ custom_minimum_size = Vector2(20, 21)
 offset_right = 18.0
 offset_bottom = 21.0
 focus_mode = 2
-script = ExtResource("1_dr63b")
-function = 1
+script = ExtResource("1_or2aw")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1543406778]
 layout_mode = 2
-texture = ExtResource("2_xf62c")
+texture = ExtResource("2_8ffn0")
 region_rect = Rect2(176, 192, 16, 16)
 patch_margin_left = 2
 patch_margin_top = 3
@@ -85,6 +84,6 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "LOCKED"
-label_settings = ExtResource("4_pjbjf")
+label_settings = ExtResource("3_w7020")
 horizontal_alignment = 1
 vertical_alignment = 1

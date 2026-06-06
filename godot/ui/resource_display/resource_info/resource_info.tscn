@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://di43x642o2nm3"]
+[gd_scene format=3 uid="uid://di43x642o2nm3"]
 
 [ext_resource type="Script" uid="uid://bcgq5d6sgkaga" path="res://ui/resource_display/resource_info/resource_info.gd" id="1_wfyae"]
 [ext_resource type="Texture2D" uid="uid://dqm6r0kraajyj" path="res://assets/free-top-down-roguelike-game-kit-pixel-art-craftpix-net-436971/4 GUI/1 Interface/TileMap8.png" id="2_x33pl"]
-[ext_resource type="LabelSettings" uid="uid://brbf5lml7xnsv" path="res://ui/pixel_label_settings.tres" id="3_p1rxi"]
+[ext_resource type="LabelSettings" uid="uid://brbf5lml7xnsv" path="res://ui/label_settings/pixel_label_settings.tres" id="3_p1rxi"]
 [ext_resource type="PackedScene" uid="uid://b5vhqs876o4tm" path="res://ui/animated_icons/coin_icon.tscn" id="4_1k5q3"]
 [ext_resource type="Script" uid="uid://bv4rn6ng1nnxu" path="res://ui/resource_display/resource_info/change_list.gd" id="5_2akem"]
 

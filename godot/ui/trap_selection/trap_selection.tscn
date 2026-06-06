@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bqwtq0th0xf8r"]
 
 [ext_resource type="Script" uid="uid://cimm2mlx6m4ss" path="res://ui/trap_selection/trap_selection.gd" id="1_e5qtg"]
-[ext_resource type="PackedScene" uid="uid://dlcos80wfknbo" path="res://ui/trap_selection/buttons/trap_button/trap_button.tscn" id="2_e5qtg"]
+[ext_resource type="PackedScene" uid="uid://b80q15yfnh8lr" path="res://ui/trap_selection/buttons/cost_button/cost_button.tscn" id="2_5lj2q"]
 [ext_resource type="PackedScene" uid="uid://321rni58g7ys" path="res://general/selection_indicator/SelectionIndicator.tscn" id="3_4fif4"]
-[ext_resource type="PackedScene" uid="uid://cjv3bvptdpiap" path="res://ui/trap_selection/buttons/erase_button/erase_button.tscn" id="3_18lpc"]
+[ext_resource type="PackedScene" uid="uid://cjv3bvptdpiap" path="res://ui/trap_selection/buttons/selection_button/selection_button.tscn" id="3_18lpc"]
 [ext_resource type="Texture2D" uid="uid://c3hgkio6yl7xc" path="res://assets/ui/icons/erase_icon.png" id="4_5lj2q"]
 [ext_resource type="Texture2D" uid="uid://dy1a8n3cssb3n" path="res://assets/ui/icons/upgrade_icon.png" id="5_wa8km"]
 
@@ -11,7 +11,7 @@
 
 [node name="TrapSelection" type="CanvasLayer" unique_id=1950234891]
 script = ExtResource("1_e5qtg")
-button_scene = ExtResource("2_e5qtg")
+button_scene = ExtResource("2_5lj2q")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=370216866]
 anchors_preset = 15
@@ -38,15 +38,16 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="RemoveButton" parent="MarginContainer/PanelContainer/HBoxContainer" unique_id=1883971584 instance=ExtResource("3_18lpc")]
-unique_name_in_owner = true
-layout_mode = 2
-icon_texture = ExtResource("4_5lj2q")
-
 [node name="UpgradeButton" parent="MarginContainer/PanelContainer/HBoxContainer" unique_id=180408846 instance=ExtResource("3_18lpc")]
 unique_name_in_owner = true
 layout_mode = 2
 icon_texture = ExtResource("5_wa8km")
 function = 2
+
+[node name="RemoveButton" parent="MarginContainer/PanelContainer/HBoxContainer" unique_id=1883971584 instance=ExtResource("3_18lpc")]
+unique_name_in_owner = true
+layout_mode = 2
+icon_texture = ExtResource("4_5lj2q")
+function = 1
 
 [node name="SelectionIndicator" parent="." unique_id=445859770 instance=ExtResource("3_4fif4")]

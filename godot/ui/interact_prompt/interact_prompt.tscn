@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://pfvy78ys0l41"]
+[gd_scene format=3 uid="uid://pfvy78ys0l41"]
 
 [ext_resource type="Script" uid="uid://crus5jtuo5p0r" path="res://ui/interact_prompt/interact_prompt.gd" id="1_lnrbs"]
 [ext_resource type="Texture2D" uid="uid://dqm6r0kraajyj" path="res://assets/free-top-down-roguelike-game-kit-pixel-art-craftpix-net-436971/4 GUI/1 Interface/TileMap8.png" id="2_qs0jb"]
 [ext_resource type="Texture2D" uid="uid://dvvmh0mqqadt6" path="res://assets/ui/icons/buttons/e_button.png" id="3_vq7s3"]
-[ext_resource type="LabelSettings" uid="uid://brbf5lml7xnsv" path="res://ui/pixel_label_settings.tres" id="4_7litb"]
+[ext_resource type="LabelSettings" uid="uid://brbf5lml7xnsv" path="res://ui/label_settings/pixel_label_settings.tres" id="4_7litb"]
 [ext_resource type="PackedScene" uid="uid://b5vhqs876o4tm" path="res://ui/animated_icons/coin_icon.tscn" id="5_1knwg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mq706"]

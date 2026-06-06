@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b80q15yfnh8lr"]
+
+[ext_resource type="PackedScene" uid="uid://cjv3bvptdpiap" path="res://ui/trap_selection/buttons/selection_button/selection_button.tscn" id="1_idiye"]
+[ext_resource type="Script" uid="uid://dedwamcrgyhgc" path="res://ui/trap_selection/buttons/cost_button/cost_button.gd" id="1_uj6m5"]
+[ext_resource type="LabelSettings" uid="uid://brbf5lml7xnsv" path="res://ui/label_settings/pixel_label_settings.tres" id="4_34176"]
+[ext_resource type="PackedScene" uid="uid://b5vhqs876o4tm" path="res://ui/animated_icons/coin_icon.tscn" id="5_xdvp1"]
+
+[node name="CostButton" unique_id=248704083 instance=ExtResource("1_idiye")]
+script = ExtResource("1_uj6m5")
+
+[node name="CostContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer2" parent_id_path=PackedInt32Array(1661529600) index="1" unique_id=1430548848]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="CostLabel" type="Label" parent="MarginContainer/HBoxContainer2/CostContainer" index="0" unique_id=1427625213]
+unique_name_in_owner = true
+layout_mode = 2
+text = "10"
+label_settings = ExtResource("4_34176")
+
+[node name="CoinIcon" parent="MarginContainer/HBoxContainer2/CostContainer" index="1" unique_id=147085998 instance=ExtResource("5_xdvp1")]
+layout_mode = 2
+mouse_filter = 2
