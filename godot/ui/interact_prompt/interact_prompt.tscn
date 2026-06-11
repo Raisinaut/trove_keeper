@@ -10,7 +10,7 @@
 border_width_bottom = 2
 border_color = Color(0.09411765, 0.078431375, 0.14509805, 0.627451)
 
-[node name="InteractPrompt" type="PanelContainer"]
+[node name="InteractPrompt" type="PanelContainer" unique_id=755865967]
 z_index = 10
 anchors_preset = 8
 anchor_left = 0.5
@@ -27,7 +27,7 @@ size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_mq706")
 script = ExtResource("1_lnrbs")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=319251875]
 layout_mode = 2
 texture = ExtResource("2_qs0jb")
 region_rect = Rect2(16, 80, 48, 16)
@@ -36,7 +36,7 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="ButtonIcon" type="TextureRect" parent="."]
+[node name="ButtonIcon" type="TextureRect" parent="." unique_id=1918275461]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 8
@@ -44,7 +44,7 @@ size_flags_vertical = 8
 texture = ExtResource("3_vq7s3")
 stretch_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1679785521]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/margin_left = 8
@@ -52,43 +52,43 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 7
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=905783185]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ActionSection" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=285790374]
 layout_mode = 2
 theme_override_constants/separation = 1
 
-[node name="ActionLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="ActionIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/ActionSection" unique_id=977048491]
+unique_name_in_owner = true
+layout_mode = 2
+stretch_mode = 5
+
+[node name="ActionLabel" type="Label" parent="MarginContainer/VBoxContainer/ActionSection" unique_id=411596846]
 unique_name_in_owner = true
 layout_mode = 2
 text = "HIRE"
 label_settings = ExtResource("4_7litb")
 
-[node name="ActionIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-stretch_mode = 5
-
-[node name="CostSection" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="CostSection" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1198613214]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="CostLabel" type="Label" parent="MarginContainer/VBoxContainer/CostSection"]
+[node name="CostLabel" type="Label" parent="MarginContainer/VBoxContainer/CostSection" unique_id=467666165]
 unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 label_settings = ExtResource("4_7litb")
 
-[node name="CoinIcon" parent="MarginContainer/VBoxContainer/CostSection" instance=ExtResource("5_1knwg")]
+[node name="CoinIcon" parent="MarginContainer/VBoxContainer/CostSection" unique_id=1097179532 instance=ExtResource("5_1knwg")]
 layout_mode = 2
 
-[node name="FxContainer" type="MarginContainer" parent="."]
+[node name="FxContainer" type="MarginContainer" parent="." unique_id=1176857847]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -97,14 +97,14 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="FlashColor" type="ColorRect" parent="FxContainer"]
+[node name="FlashColor" type="ColorRect" parent="FxContainer" unique_id=144413349]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="DisableOverlay" type="ColorRect" parent="."]
+[node name="DisableOverlay" type="ColorRect" parent="." unique_id=861202164]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 color = Color(0.09320182, 0.07846785, 0.14733289, 0.65000004)
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="." unique_id=675456188]

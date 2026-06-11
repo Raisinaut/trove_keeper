@@ -47,8 +47,8 @@ func upgrade_highlighted_trap_on_map() -> void:
 	if not s:
 		return
 	var upgrade_property : String = "special_2"
-	var current_tier = TrapManager.get_trap_tier(s, upgrade_property)
-	TrapManager.set_trap_tier(s, upgrade_property, current_tier + 1)
+	var current_rank = TrapManager.get_trap_rank(s, upgrade_property)
+	TrapManager.set_trap_rank(s, upgrade_property, current_rank + 1)
 	print("Upgraded " + s.name + "'s " + upgrade_property)
 
 

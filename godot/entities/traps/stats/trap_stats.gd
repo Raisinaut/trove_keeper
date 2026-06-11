@@ -1,7 +1,7 @@
 class_name TrapStats
 extends Resource
 
-signal tier_changed(property, value)
+signal rank_changed(property, value)
 
 enum CATEGORIES  {
 	TOWER
@@ -11,16 +11,16 @@ enum CATEGORIES  {
 @export var special_1 : String = ""
 @export var special_2 : String = ""
 
-var tiers : Dictionary[String, int] = {
+var ranks : Dictionary[String, int] = {
 	"interval"  : 1,
 	"duration"  : 1,
 	"special_1" : 1,
 	"special_2" : 1
 }
 
-func set_tier(property : String, value) -> void:
-	tiers[property] = value
+func set_rank(property : String, value) -> void:
+	ranks[property] = value
 	var variable_name = property
 	if variable_name.has("special"):
 		variable_name = get(property)
-	tier_changed.emit(variable_name, value)
+	rank_changed.emit(variable_name, value)

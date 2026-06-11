@@ -1,7 +1,7 @@
 extends Node
 
-var weapon_tiers_file = "res://data/Trove Keeper Weapon Tiers .json"
-var weapon_tiers : Dictionary = {}
+var weapon_ranks_file = "res://data/Trove Keeper Weapon Tiers .json"
+var weapon_ranks : Dictionary = {}
 
 var data_folder := "res://resources/traps/"
 var all_data : Array = []
@@ -9,7 +9,7 @@ var all_data : Array = []
 
 func _ready() -> void:
 	populate_data_list(all_data)
-	weapon_tiers = parse_json(load_from_file(weapon_tiers_file))
+	weapon_ranks = parse_json(load_from_file(weapon_ranks_file))
 
 
 # TRAP-SPECFIC -----------------------------------------------------------------
@@ -56,42 +56,42 @@ func populate_data_list(data_list : Array):
 			push_error("Could not load item from ", file_path)
 
 
-# TIERS ------------------------------------------------------------------------
-func reset_tiers(trap : BaseTrap) -> void:
+# RANKS ------------------------------------------------------------------------
+func reset_ranks(trap : BaseTrap) -> void:
 	var data = get_data_for_instance(trap)
 	for p in data.upgradeable_properties:
-		set_trap_tier(trap, p, 0)
+		set_trap_rank(trap, p, 0)
 
-func set_trap_tier(trap : BaseTrap, property : String, tier : int) -> void:
+func set_trap_rank(trap : BaseTrap, property : String, rank : int) -> void:
 	var data = get_data_for_instance(trap)
-	var all_tiers = get_tiers(data.get_type_as_string(), data.display_name, property)
-	if all_tiers:
+	var all_ranks = get_ranks(data.get_type_as_string(), data.display_name, property)
+	if all_ranks:
 		var full_property_name = data.get(property)
-		var max_tier = all_tiers.size() - 1
-		var value = all_tiers[min(tier, max_tier)]
+		var max_rank = all_ranks.size() - 1
+		var value = all_ranks[min(rank, max_rank)]
 		trap.set(full_property_name, value)
 	else:
 		push_warning("Property \"" + property + "\" \
 		does not exist in " + str(trap))
 		pass
 
-## Returns an array of tier values for the given property.[br]
+## Returns an array of rank values for the given property.[br]
 ##  [code]type[/code] can be tower or consumable [br]
 ##  [code]trap_name[/code] should match the trap's display name, case does not matter. [br]
 ##  [code]property[/code] must be an upgradable property: interval_1, special_2, etc.
-func get_tiers(type : String, trap_name : String, property : String) -> Array:
-	return weapon_tiers[type][trap_name][property]
+func get_ranks(type : String, trap_name : String, property : String) -> Array:
+	return weapon_ranks[type][trap_name][property]
 
-## Returns the given property's tier [br]
-## Tiers use zero-based indices
-func get_trap_tier(trap : BaseTrap, property : String) -> int:
+## Returns the given property's rank [br]
+## ranks use zero-based indices
+func get_trap_rank(trap : BaseTrap, property : String) -> int:
 	# get current property value
 	var data = get_data_for_instance(trap)
 	var actual_property_name = data.get(property) # find linked property
 	var property_value : float = trap.get(actual_property_name) # cast value to float to work with json
-	# find and return that value's tier index
-	var tiers = get_tiers(data.get_type_as_string(), data.display_name, property)
-	return tiers.find(property_value)
+	# find and return that value's rank index
+	var ranks = get_ranks(data.get_type_as_string(), data.display_name, property)
+	return ranks.find(property_value)
 
 
 # JSON -------------------------------------------------------------------------

@@ -29,7 +29,7 @@ func _ready() -> void:
 	interaction_area.can_interact_changed.connect(_on_can_interact_changed)
 	interact_display.hide()
 	_connect_signals()
-	TrapManager.reset_tiers(self)
+	TrapManager.reset_ranks(self)
 
 
 func _process(delta: float) -> void:
